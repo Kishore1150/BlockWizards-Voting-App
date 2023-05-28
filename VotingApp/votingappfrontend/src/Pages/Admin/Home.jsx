@@ -21,16 +21,18 @@ const AdminHome = () => {
   });
   const handleSubmit = async (event) => {
     event.preventDefault();
-    let check = await contract.ifCommissioner();
-    if (check) {
-      let byte32Candidate = web3.fromAscii(canditate.name);
-      const response = await AdminServices.addCanditate(canditate);
-      await contract.addCandidate(
-        byte32Candidate.padEnd(66, "0"),
-        canditate.walletaddress,
-        canditate.imgurl
-      );
-    }
+    const response = await AdminServices.addCanditate(canditate);
+    // let check = await contract.ifCommissioner();
+    // console.log(check);
+    // if (check) {
+    //   let byte32Candidate = web3.fromAscii(canditate.name);
+    //   console.log(canditate);
+    //   await contract.addCandidate(
+    //     byte32Candidate.padEnd(66, "0"),
+    //     canditate.walletaddress,
+    //     canditate.imgurl
+    //   );
+    // }
   };
   const StartElection = async () => {
     await contract.startElection();

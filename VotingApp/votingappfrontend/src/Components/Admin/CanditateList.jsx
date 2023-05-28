@@ -5,12 +5,15 @@ import { VotingContext } from "../../utils/VotingContext";
 import Web3 from "web3";
 const CanditateList = ({ addCanditate, setAddCanditate }) => {
   const [canditates, setCanditates] = useState();
-  const { contract ,provider} = useContext(VotingContext);
+  const { contract, provider } = useContext(VotingContext);
   const web3 = new Web3(provider);
   const getAllCandidates = async () => {
-
-    let temp = await contract.getCandidates();
-    setCanditates(temp);
+    await AdminServices.getAllCandidates().then((response) => {
+      setCanditates(response.data);
+      console.log(response);
+    });
+    // let temp = await contract.getCandidates();
+    // setCanditates(temp);
   };
   useEffect(() => {
     getAllCandidates();
@@ -27,31 +30,29 @@ const CanditateList = ({ addCanditate, setAddCanditate }) => {
                   <figure className="w-[6rem]  h-[8rem] rounded-lg">
                     <img
                       className="rounded-full w-24 h-24"
-                      src={
-                        candidate.image
-                      }
+                      src={candidate.imgurl}
                     />
                   </figure>
                   <div>
-                    <p className="text-xl">{web3.toAscii(candidate.name.replace(/00+/, ""))}</p>
+                    <p className="text-xl">{candidate.name}</p>
                   </div>
                 </div>
               </div>
             );
           })}
         </div>
-       <div className="relative flex gap-5 mx-5">
-
+        <div className="relative flex gap-5 mx-5">
           <button
             onClick={() => setAddCanditate(!addCanditate)}
-            className="text-lg w-12 h-10   bg-purple     rounded-md cursor-pointer"
-          >Add</button>
-        <button
-          onClick={getAllCandidates}
-          className="p-1 w-36 h-10 bg-purple rounded-lg">
-          Show Canditate
-        </button>
-            </div>
+            className="text-lg w-12 h-10   bg-purple     rounded-md cursor-pointer">
+            Add
+          </button>
+          <button
+            onClick={getAllCandidates}
+            className="p-1 w-36 h-10 bg-purple rounded-lg">
+            Show Canditate
+          </button>
+        </div>
       </div>
     </div>
   );
