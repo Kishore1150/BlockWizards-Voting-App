@@ -2,7 +2,7 @@ import React,{useEffect,useState,useContext} from "react";
 import {shortenAddress} from "../../utils/shortenAddress.js"
 import Web3 from "web3";
 import { VotingContext } from "../../utils/VotingContext.js";
-
+import AdminServices from "../../services/AdminServices.jsx";
 const Voters = () => {
   const{contract,currentAccount,provider} = useContext(VotingContext);
   const [candidatesList, setCandidatesList] = useState();
@@ -14,9 +14,12 @@ const Voters = () => {
    }
 
    const getVotersList = async () => {
-    let val = await contract.getCandidates();
-    console.log(val);
-    setCandidatesList(val);
+    // let val = await contract.getCandidates();
+    // console.log(val);
+    // setCandidatesList(val);
+    await AdminServices.getAllCandidates().then((response)=>{
+      setCandidatesList(response.data);
+    })
   };
 
   return (
@@ -42,11 +45,11 @@ const Voters = () => {
                   <img
                     className="w-16 h-16   relative left-[4.5rem]
                      rounded-md"
-                    src={candidate.image}
+                    src={candidate.imgurl}
                     alt=""
                   />
                 </td>
-                <td className=" px-5 py-2 text-center">{web3.toAscii(candidate.name.replace(/00+/, ""))}</td>
+                <td className=" px-5 py-2 text-center">{candidate.name}</td>
                 <td className=" px-4 py-2 text-center">
                   {shortenAddress(candidate.own_address)}
                 </td>
