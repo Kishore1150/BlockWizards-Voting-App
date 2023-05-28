@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Nandhakumar-P07/BlockCampAmrita/static/css/main.399bdf9e.css",
+    "main.js": "/Nandhakumar-P07/BlockCampAmrita/static/js/main.cfe6f56c.js",
+    "static/js/787.9cd8ab2a.chunk.js": "/Nandhakumar-P07/BlockCampAmrita/static/js/787.9cd8ab2a.chunk.js",
+    "index.html": "/Nandhakumar-P07/BlockCampAmrita/index.html",
+    "main.399bdf9e.css.map": "/Nandhakumar-P07/BlockCampAmrita/static/css/main.399bdf9e.css.map",
+    "main.cfe6f56c.js.map": "/Nandhakumar-P07/BlockCampAmrita/static/js/main.cfe6f56c.js.map",
+    "787.9cd8ab2a.chunk.js.map": "/Nandhakumar-P07/BlockCampAmrita/static/js/787.9cd8ab2a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.399bdf9e.css",
+    "static/js/main.cfe6f56c.js"
+  ]
+}

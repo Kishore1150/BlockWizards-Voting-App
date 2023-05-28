@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Nunito:wght@400;1000&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Source+Serif+Pro&display=swap");
+
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #191b1f;
+  color: white;
+  font-family: "Inter", sans-serif;
+}
+
+.dropdown-menu {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.dropdown-menu.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.footer {
+  display: flex;
+  background: #191b1f;
+  align-items: start;
+  width: 100%;
+  margin-top: 20px;
+  color: white;
+  padding: 10px 20px;
+  justify-content: space-between;
+}
+.footer__left {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}
+.footer__left img {
+  height: 70px;
+  width: 70px;
+  margin: 10px;
+}
+.footer__left ul {
+  margin: 10px;
+  list-style: none;
+  display: flex;
+}
+.footer__left ul li {
+  margin: 0 10px;
+  font-size: 30px;
+}
+.footer__left ul li a {
+  color: #98a1c0;
+}
+
+.footer__left p {
+  color: #98a1c0;
+  margin: 10px;
+}
+
+.footer__right {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 80%;
+}
+.footer__right ul {
+  list-style: none;
+  color: #98a1c0;
+}
+
+.footer__right ul li {
+  padding: 3px 0;
+}
+.footer__option__head {
+  font-weight: 700;
+}
+.footer__right .footer__option {
+  transition: 0.5s ease-in-out;
+}
+
+.footer__right .footer__option:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: white;
+}
+
